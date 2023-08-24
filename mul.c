@@ -1,22 +1,23 @@
 #include "monty.h"
 /**
- * mul_nodes - Adds the top two elements of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * mul - Multiply the top elements of the stack
+ * @s: double pointer to top of stack
+ * @iloc: line number of the OPcode
  */
-void mul_nodes(stack_t **stack, unsigned int line_number)
+void mul(stack_t **s, unsigned int iloc)
 {
-	int sum;
+	int total = 0;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (*s == NULL || (*s)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can\'t mul, stack too short\n", line_number);
-		free_linkedlist(*stack);
+		fprintf(stderr, "L%d: can't mul, stack is too short\n", iloc);
+		free_lists(*s);
 		exit(EXIT_FAILURE);
 	}
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n * (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*s) = (*s)->next;
+
+	total = (*s)->n * (*s)->prev->n;
+	(*s)->n = total;
+	free((*s)->prev);
+	(*s)->prev = NULL;
 }
