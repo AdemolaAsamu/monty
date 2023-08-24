@@ -16,7 +16,7 @@ char **blow(char *holder)
 
 	if (holder != NULL)
 	{
-		cpy = _strdup(holder);
+		cpy = compd(holder);
 		hold = strtok(cpy, end);
 		while (hold)
 		{

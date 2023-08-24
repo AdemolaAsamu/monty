@@ -17,7 +17,7 @@ void *handle_functions(char *state, unsigned int l)
 		{"pstr", pstr}, {"rotr", rotr}, {"rotl", rotl},
 		{NULL, NULL}};
 	(void)l;
-	
+
 	while (op[k].opcode != NULL)
 	{
 		if (!strcmp(s, op[k].opcode))
