@@ -1,10 +1,11 @@
 #include "monty.h"
+#include <ctype.h>
 /**
- * check_int - fxn confirm number is int
- * @input: read input
- * Return: 0 for false and 1 for success
- */
-int check_int(const char *input)
+  * is_integer - checks if a number is an int or not
+  * @input: input of function
+  * Return: Returns a 0 (false) or a 1 (true)
+  */
+int is_integer(const char *input)
 {
 	if (input == NULL)
 		return (0);
@@ -12,6 +13,7 @@ int check_int(const char *input)
 		return (0);
 	if (*input == '+' || *input == '-')
 		input++;
+
 	while (*input != '\0')
 	{
 		if (!isdigit(*input))

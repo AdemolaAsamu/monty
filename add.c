@@ -1,24 +1,24 @@
 #include "monty.h"
 /**
- * adde - Adds the top elements of the stack
- * @s: double pointer to top of stack
- * @iloc: line number of the OPcode
+ * add - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void adde(stack_t **s, unsigned int iloc)
+void add(stack_t **stack, unsigned int line_number)
 {
-	int total = 0;
-	stack_t *buffer = *s;
+	int sum = 0;
+	stack_t *temp = *stack;
 
-	if (*s == NULL || (*s)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack is too short\n", iloc);
-		free_lists(*s);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_linkedlist(*stack);
 		exit(EXIT_FAILURE);
 	}
-	(*s) = (*s)->next;
+	(*stack) = (*stack)->next;
 
-	total = buffer->n + buffer->next->n;
-	(*s)->n = total;
-	free(buffer);
-	(*s)->prev = NULL;
+	sum = temp->n + temp->next->n;
+	(*stack)->n = sum;
+	free(temp);
+	(*stack)->prev = NULL;
 }
