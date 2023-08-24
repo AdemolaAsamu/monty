@@ -43,3 +43,4 @@ typedef struct instruction_s
 extern char *exec;
 
 char **blow(char *holder);
+void *handle_functions(char *state, unsigned int l)
