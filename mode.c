@@ -30,7 +30,7 @@ void open_fail(char *buf)
  * @fp: file pointer
  * Return: void
  */
-void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head)
+void error(char *buf, char **turnOP, unsigned int l, stack_t *head, FILE *fp)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", l, turnOP[0]);
 	free(buf);

@@ -10,7 +10,7 @@ void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned 
 	int k = 0;
 
 	instruction_t op[] = {
-		{"push", push}, {"add", add}, {"nop", nop},
+		{"push", push}, {"add", adde}, {"nop", nop},
 		{"pall", pall}, {"sub", sub}, {"pint", pint},
 		{"swap", swap}, {"mul", mul}, {"div", dive},
 		{"pop", pop}, {"pchar", pchar}, {"mod", mod},

@@ -66,7 +66,7 @@ void push_que(stack_t **stack, __attribute((unused))unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	count = atoi(exec);
-	if (count == NULL)
+	if (to_add == NULL)
 	{
 		fprintf(stderr, "Error:malloc failed\n");
 		exit(EXIT_FAILURE);

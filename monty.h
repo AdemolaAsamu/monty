@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -47,13 +47,13 @@ void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned 
 char *compd(char *buf);
 void open_fail(char *buf);
 unsigned int mode_chckr(char *OP);
-void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head);
+void error(char *buf, char **turnOP, unsigned int l,  stack_t *head, FILE *fp);
 void confirm_input(int count);
 void free_prim(char **prim);
 int check_int(const char *input);
 void fail(stack_t **s, unsigned int iloc);
 void free_lists(stack_t *head);
-void add(stack_t **s, unsigned int iloc);
+void adde(stack_t **s, unsigned int iloc);
 void dive(stack_t **s, unsigned int iloc);
 void push(stack_t **stack,unsigned int line_number);
 void push_que(stack_t **stack, unsigned int line_number);

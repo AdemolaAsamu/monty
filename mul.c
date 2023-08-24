@@ -4,7 +4,7 @@
  * @s: double pointer to top of stack
  * @iloc: line number of the OPcode
  */
-void add(stack_t **s, unsigned int iloc)
+void mul(stack_t **s, unsigned int iloc)
 {
 	int total = 0;
 
@@ -18,6 +18,6 @@ void add(stack_t **s, unsigned int iloc)
 
 	total = (*s)->n * (*s)->prev->n;
 	(*s)->n = total;
-	free((*)->prev);
+	free((*s)->prev);
 	(*s)->prev = NULL;
 }

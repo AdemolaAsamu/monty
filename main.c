@@ -1,4 +1,6 @@
 #include "monty.h"
+#include <stdio.h>
+char *exec = NULL;
 /**
  * main - Thi sis the main entry file
  * @count: this is argument count
@@ -14,9 +16,9 @@ int main(int count, char **value)
 	size_t str_len = 0;
 
 	confirm_input(count);
-	fd = fopen(value[1]);
+	fd = fopen(value[1], "r");
 	if (fd == NULL)
-		open_fqil(value[1]);
+		open_fail(value[1]);
 	while (getline(&gap, &str_len, fd) != -1)
 	{
 		iloc++;
@@ -34,13 +36,13 @@ int main(int count, char **value)
 			free_prim(prim);
 			continue;
 		}
-		argument = prim[1];
-		if (!(handle_function(prim[0], iloc)))
+		exec = prim[1];
+		if (!(handle_functions(prim[0], iloc)))
 			error(gap, prim, iloc, head, fd);
 		if (state && (!strcmp(prim[0], "push")))
-			handle_function("queue", iloc)(&head, iloc);
+			handle_functions("queue", iloc)(&head, iloc);
 		else
-			handle_function(prim[0], iloc)(&head, iloc);
+			handle_functions(prim[0], iloc)(&head, iloc);
 		free_prim(prim);
 	}
 	fclose(fd);

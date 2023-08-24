@@ -7,8 +7,8 @@
 void pstr(stack_t **stack, unsigned int iloc)
 {
 	int count;
-	(void)iloc;
 	stack_t *buffer = *stack;
+	(void)iloc;
 
 	if (!*stack)
 	{

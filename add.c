@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * add - Adds the top elements of the stack
+ * adde - Adds the top elements of the stack
  * @s: double pointer to top of stack
  * @iloc: line number of the OPcode
  */
-void add(stack_t **s, unsigned int iloc)
+void adde(stack_t **s, unsigned int iloc)
 {
 	int total = 0;
 	stack_t *buffer = *s;
