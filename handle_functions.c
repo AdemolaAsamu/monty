@@ -15,7 +15,7 @@ void *handle_functions(char *state, unsigned int l)
 		{"swap", swap}, {"mul", mul}, {"div", div},
 		{"pop", pop}, {"pchar", pchar}, {"mod", mod},
 		{"pstr", pstr}, {"rotr", rotr}, {"rotl", rotl},
-		{NULL, NULL}};
+		{"queue", push_que}, {NULL, NULL}};
 	(void)l;
 
 	while (op[k].opcode != NULL)
