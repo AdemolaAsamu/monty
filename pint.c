@@ -1,63 +1,15 @@
 #include "monty.h"
-
 /**
- * pint - prints the first element of the stack
- * @top: the current head
- * @line_number: the current line
+ * pint - prints the first element of stack
+ * @stack: The pointer to stack
+ * @line_number: the line number
  */
-void pint(stack_t **top, unsigned int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
-	if (*top == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*top)->n);
-}
-/**
- * pop - prints the first element of the stack
- * @top: the current head
- * @line_number: the current line
- */
-void pop(stack_t **top, unsigned int line_number)
-{
-	stack_t *temp = *top;
-
-	if (*top == NULL || top == NULL)
-	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
-	*top = (*top)->next;
-
-	if (*top != NULL)
-		(*top)->prev = NULL;
-
-	free(temp);
-
-}
-/**
- * swap - swaps the head and the next to head
- * @top: the current head
- * @line_number: the current line
- */
-void swap(stack_t **top, unsigned int line_number)
-{
-	stack_t *temp = *top;
-
-	if (temp == NULL || temp->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		*top = temp->next;
-		(*top)->prev = NULL;
-		temp->prev = *top;
-		temp->next = (*top)->next;
-		(*top)->next = temp;
-	}
-
+	printf("%d\n", (*stack)->n);
 }

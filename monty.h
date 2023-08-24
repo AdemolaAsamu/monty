@@ -1,10 +1,15 @@
-#ifndef MAIN_H
-#define MAIN_H
-#include <stddef.h>
-#include <stdlib.h>
+#ifndef MONTY_H
+#define MONTY_H
+
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <ctype.h>
 #include <stddef.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -16,10 +21,11 @@
  */
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -30,38 +36,37 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *argument;
-char **tokenizer(char *buffer);
-void (*select_func(char *s, unsigned int))(stack_t **, unsigned int);
-char *_strdup(char *str);
-unsigned int check_mode(char *str);
-void error(char *buf, char **tokens, unsigned int line, stack_t *h, FILE *fd);
+extern char *exec;
 
-
-void free_linkedlist(stack_t *head);
-void free_tok(char **tokens);
-int is_integer(const char *input);
-void validate_arg(int argc);
-void cant_open(char *s);
-
-void mod(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
-void pushend(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void divi(stack_t **stack, unsigned int line_number);
+char **blow(char *holder);
+void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned int);
+char *compd(char *buf);
+void open_fail(char *buf);
+unsigned int mode_chckr(char *s);
+void error(char *buf, char **turn, unsigned int l,  stack_t *head, FILE *fp);
+void confirm_input(int count);
+void free_prim(char **prim);
+int check_int(const char *input);
+void fail(stack_t **stack, unsigned int line_number);
+void free_lists(stack_t *head);
+void adde(stack_t **stack, unsigned int line_number);
+void dive(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack,unsigned int line_number);
+void push_que(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-void mul_nodes(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line);
-void pstr(stack_t **stack, unsigned int line);
-void rotl(stack_t **stack, unsigned int line);
-void rotr(stack_t **stack, unsigned int line);
+void sub(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 #endif
