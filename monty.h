@@ -50,6 +50,7 @@ unsigned int mode_chckr(char *OP);
 void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head);
 void confirm_input(int count);
 void free_prim(char **prim);
+void fail(stack_t __attribute__((unused)) **s, unsigned int iloc);
 void free_lists(stack_t *head);
 void add(stack_t **s, unsigned int iloc);
 void div(stack_t **s, unsigned int iloc);
