@@ -34,8 +34,8 @@ void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", l, turnOP[0]);
 	free(buf);
-	free_tok(turnOP);
-	free_linkedlist(head);
+	free_prim(turnOP);
+	free_lists(head);
 	fclose(fp);
 	exit(EXIT_FAILURE);
 }

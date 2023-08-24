@@ -49,3 +49,6 @@ void open_fail(char *buf);
 unsigned int mode_chckr(char *OP);
 void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head);
 void confirm_input(int count);
+void free_prim(char **prim);
+void free_lists(stack_t *head);
+#define _POSIX_C_SOURCE 200809L
