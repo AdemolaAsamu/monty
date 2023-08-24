@@ -53,7 +53,7 @@ void free_prim(char **prim);
 void free_lists(stack_t *head);
 void add(stack_t **s, unsigned int iloc);
 void div(stack_t **s, unsigned int iloc);
-void push(stack_t **s, unsigned int iloc);
+void push(stack_t **s, __attribute__((unused))unsigned int iloc)
 void nop(stack_t **s, unsigned int iloc);
 void pall(stack_t **s, unsigned int iloc);
 void sub(stack_t **s, unsigned int iloc);
