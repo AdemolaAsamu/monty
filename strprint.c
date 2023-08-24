@@ -4,13 +4,13 @@
  * @s: double pointer to stack
  * @iloc: line number
  */
-void pstr(stack_t *s, unsigned int iloc)
+void pstr(stack_t **stack, unsigned int iloc)
 {
 	int count;
 	(void)iloc;
-	stack_t *buffer = *s;
+	stack_t *buffer = *stack;
 
-	if (!*s)
+	if (!*stack)
 	{
 		printf("\n");
 		return;

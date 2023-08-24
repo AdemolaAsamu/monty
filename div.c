@@ -1,13 +1,12 @@
 #include "monty.h"
 /**
- * div - Second divided by the first element
+ * dive - Second divided by the first element
  * @s: double pointer to top of stack
  * @iloc: line number of the OPcode
  */
-void div(stack_t **s, unsigned int iloc)
+void dive(stack_t **s, unsigned int iloc)
 {
 	int total = 0;
-	stack_t *buffer = *s;
 
 	if (s == NULL || *s == NULL || (*s)->next == NULL)
 	{

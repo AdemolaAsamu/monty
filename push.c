@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
  * push - this pushes a new node to stack from top
- * @s: is the stack to be added
- * @iloc: number of line
+ * @stack: is the stack to be added
+ * @line_number: number of line
  */
-void push(stack_t **s, __attribute__((unused))unsigned int iloc)
+void push(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *to_add = malloc(sizeof(size_t));
 	int count;
@@ -16,36 +16,36 @@ void push(stack_t **s, __attribute__((unused))unsigned int iloc)
 	}
 	if (exec == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", iloc);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((check_int(exec) == 0))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", iloc);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	count = atoi(exec);
-	if (!s)
+	if (!stack)
 		return;
 	to_add->n = count;
 	to_add->prev = NULL;
 	to_add->next = NULL;
-	if (*s == NULL)
-		*s = to_add;
+	if (*stack == NULL)
+		*stack = to_add;
 	else
 	{
-		to_add->next = *s;
-		(*s)->prev = to_add;
-		*s = to_add;
+		to_add->next = *stack;
+		(*stack)->prev = to_add;
+		*stack = to_add;
 	}
 }
 
 /**
  * push_que - This pushes into the stack from behind
- * @s: stack to be added
- * @iloc: location of the line
+ * @stack: stack to be added
+ * @line_number: location of the line
  */
-void push_que(stack_t **s, __attribute((unused))unsigned int iloc)
+void push_que(stack_t **stack, __attribute((unused))unsigned int line_number)
 {
 	stack_t *buffer, *to_add = malloc(sizeof(stack_t));
 	int count;
@@ -57,12 +57,12 @@ void push_que(stack_t **s, __attribute((unused))unsigned int iloc)
 	}
 	if (exec == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", iloc);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (check_int(exec) == 0)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", iloc);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	count = atoi(exec);
@@ -71,16 +71,16 @@ void push_que(stack_t **s, __attribute((unused))unsigned int iloc)
 		fprintf(stderr, "Error:malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (!s)
+	if (!stack)
 		return;
 	to_add->n = count;
 	to_add->prev = NULL;
 	to_add->next = NULL;
-	if (*s == NULL)
-		*s = to_add
+	if (*stack == NULL)
+		*stack = to_add;
 	else
 	{
-		buffer = *s;
+		buffer = *stack;
 		while (buffer->next != NULL)
 			buffer = buffer->next;
 		buffer->next = to_add;

@@ -4,7 +4,7 @@
  * @s: double poibnter to stack
  * @iloc: line number which code is
  */
-void pchar(stact_t **s, unsigned int iloc)
+void pchar(stack_t **s, unsigned int iloc)
 {
 	int count;
 
@@ -15,7 +15,7 @@ void pchar(stact_t **s, unsigned int iloc)
 	}
 
 	count = (*s)->n;
-	if (count >= 0 && num <= 127)
+	if (count >= 0 && count <= 127)
 		printf("%c\n", count);
 	else
 	{

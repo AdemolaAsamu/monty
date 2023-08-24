@@ -18,7 +18,7 @@ unsigned int mode_chckr(char *OP)
  */
 void open_fail(char *buf)
 {
-	fprint(stderr, "Error: Can't open file %s\n", buf);
+	fprintf(stderr, "Error: Can't open file %s\n", buf);
 	exit(EXIT_FAILURE);
 }
 /**

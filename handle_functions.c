@@ -5,14 +5,14 @@
  * @l: This is the line number
  * Return: A pointer to the string
  */
-void *handle_functions(char *state, unsigned int l)
+void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned int)
 {
 	int k = 0;
 
 	instruction_t op[] = {
 		{"push", push}, {"add", add}, {"nop", nop},
 		{"pall", pall}, {"sub", sub}, {"pint", pint},
-		{"swap", swap}, {"mul", mul}, {"div", div},
+		{"swap", swap}, {"mul", mul}, {"div", dive},
 		{"pop", pop}, {"pchar", pchar}, {"mod", mod},
 		{"pstr", pstr}, {"rotr", rotr}, {"rotl", rotl},
 		{"queue", push_que}, {NULL, NULL}};
@@ -20,7 +20,7 @@ void *handle_functions(char *state, unsigned int l)
 
 	while (op[k].opcode != NULL)
 	{
-		if (!strcmp(s, op[k].opcode))
+		if (!strcmp(state, op[k].opcode))
 			return (op[k].f);
 		k++;
 	}

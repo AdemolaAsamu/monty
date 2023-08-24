@@ -8,12 +8,12 @@ void free_lists(stack_t *head)
 {
 	stack_t *buffer;
 
-	if (h != NULL)
+	if (head != NULL)
 	{
-		while (h != NULL)
+		while (head != NULL)
 		{
-			buffer = h;
-			h = h->next;
+			buffer = head;
+			head = head->next;
 			free(buffer);
 		}
 	}

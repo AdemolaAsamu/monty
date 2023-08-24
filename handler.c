@@ -14,34 +14,31 @@ char **blow(char *holder)
 	k = 0;
 	j = 0;
 
-	if (holder != NULL)
-	{
-		cpy = compd(holder);
-		hold = strtok(cpy, end);
-		while (hold)
-		{
-			j++;
-			hold = strtok(NULL, end);
-		}
-		if (j == 0)
-		{
-			free(cpy)
-			return (NULL);
-		}
-		hldr = malloc(sizeof(char *) * (j + 1));
-		if (hldr == NULL)
-			return (NULL);
-		hold = strtok(holder, end);
-		while (hold != NULL)
-		{
-			hldr[k] = _strdup(hold);
-			k++;
-			hold = strtok(NULL, end);
-		}
-		hldr[j] = NULL;
-		free(cpy);
-		return (hldr);
-	}
 	if (holder == NULL)
 		return (NULL);
+	cpy = compd(holder);
+	hold = strtok(cpy, end);
+	while (hold)
+	{
+		j++;
+		hold = strtok(NULL, end);
+	}
+	if (j == 0)
+	{
+		free(cpy);
+		return (NULL);
+	}
+	hldr = malloc(sizeof(char *) * (j + 1));
+	if (hldr == NULL)
+		return (NULL);
+	hold = strtok(holder, end);
+	while (hold != NULL)
+	{
+		hldr[k] = compd(hold);
+		k++;
+		hold = strtok(NULL, end);
+	}
+	hldr[j] = NULL;
+	free(cpy);
+	return (hldr);
 }

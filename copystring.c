@@ -7,13 +7,13 @@
 char *compd(char *buf)
 {
 	char *cpy, *cpy_paste;
-	int k;
+	int k, w;
 
 	if (buf == NULL)
 		return (NULL);
 
 	k = strlen(buf);
-	w = k + 1
+	w = k + 1;
 	cpy = NULL;
 	cpy = malloc(sizeof(char) * w);
 	if (cpy == NULL)
@@ -21,7 +21,7 @@ char *compd(char *buf)
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
-	coy_paste = cpy;
+	cpy_paste = cpy;
 	while (*buf)
 	{
 		*cpy_paste = *buf;
