@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * nop - typically nope
- * @s: pointer to the pointer pointing to head of stack
- * @iloc: integer representing the line number
+ * nop - Does nothing.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void nop(stack_t **s, unsigned int iloc)
+void nop(stack_t **stack, unsigned int line_number)
 {
-	(void)s;
-	(void)iloc;
+	(void)stack;
+	(void)line_number;
 }
