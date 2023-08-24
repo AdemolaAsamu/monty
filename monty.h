@@ -45,3 +45,7 @@ extern char *exec;
 char **blow(char *holder);
 void *handle_functions(char *state, unsigned int l);
 char *compd(char *buf);
+void open_fail(char *buf);
+unsigned int mode_chckr(char *OP);
+void error(char *buf, char **turnOP, unsigned int l, FILE *fp, stack_t *head);
+void confirm_input(int count);
