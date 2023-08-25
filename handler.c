@@ -6,11 +6,10 @@
  */
 char **blow(char *holder)
 {
-	char *hold, *cpy, *end;
+	char *hold, *cpy, *end = " \n\t";
 	char **hldr;
 	int k, j;
 
-	end = " \n\t";
 	k = 0;
 	j = 0;
 

@@ -6,7 +6,7 @@
  */
 char *compd(char *buf)
 {
-	char *cpy, *cpy_paste;
+	char *cpy = NULL, *cpy_paste;
 	int k, w;
 
 	if (buf == NULL)
@@ -14,7 +14,6 @@ char *compd(char *buf)
 
 	k = strlen(buf);
 	w = k + 1;
-	cpy = NULL;
 	cpy = malloc(sizeof(char) * w);
 	if (cpy == NULL)
 	{
