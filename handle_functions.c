@@ -29,6 +29,7 @@ void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned 
 		{NULL, NULL}};
 	(void)l;
 
+
 	while (op[k].opcode != NULL)
 	{
 		if (!strcmp(state, op[k].opcode))

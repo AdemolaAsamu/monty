@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char *gap = NULL, **prim;
 	stack_t *head = NULL;
 	FILE *fd;
-	unsigned int iloc = 0, state = 0;
+	unsigned int line_number = 0, state = 0;
 	size_t str_len = 0;
 
 	confirm_input(argc);
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		open_fail(argv[1]);
 	while (getline(&gap, &str_len, fd) != -1)
 	{
-		iloc++;
+		line_number++;
 		prim = blow(gap);
 		if (!prim)
 			continue;
@@ -30,23 +30,22 @@ int main(int argc, char **argv)
 			free_prim(prim);
 			continue;
 		}
-		if (strcmp(prim[0], "queue") || !strcmp(prim[0], "stack"))
+		if (!strcmp(prim[0], "queue") || !strcmp(prim[0], "stack"))
 		{
 			state = mode_chckr(prim[0]);
-			/*free_prim(prim);*/
-			/*continue;*/
+			free_prim(prim);
+			continue;
 		}
 		argument = prim[1];
-		if (!(handle_functions(prim[0], iloc)))
+		if (!(handle_functions(prim[0], line_number)))
 		{
-			printf("Unhandled opcode: %s\n", prim[0]);
-			error(gap, prim, iloc, head, fd);
+			error(gap, prim, line_number, head, fd);
 		}
 		if (state && (!strcmp(prim[0], "push")))
-			handle_functions("queue", iloc)(&head, iloc);
+			handle_functions("queue", line_number)(&head, line_number);
 		else
-			handle_functions(prim[0], iloc)(&head, iloc);
-		/*free_prim(prim);*/
+			handle_functions(prim[0], line_number)(&head, line_number);
+		free_prim(prim);
 	}
 	fclose(fd);
 	free(gap);
