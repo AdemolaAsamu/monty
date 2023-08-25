@@ -43,7 +43,7 @@ typedef struct instruction_s
 extern char *argument;
 
 char **blow(char *holder);
-void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned int);
+void (*handle_functions(char *state, unsigned int))(stack_t **, unsigned int);
 char *_cpygg(char *buf);
 void open_fail(char *buf);
 unsigned int mode_chckr(char *s);
