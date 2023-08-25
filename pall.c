@@ -8,6 +8,7 @@ void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *buffer = *stack;
 
+	printf("I got there");
 	if (*stack == NULL)
 		return;
 	while (buffer != NULL)
@@ -15,4 +16,5 @@ void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 		printf("%d\n", buffer->n);
 		buffer = buffer->next;
 	}
+
 }

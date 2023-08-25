@@ -8,7 +8,7 @@ void mod(stack_t **stack, unsigned int line_number)
 {
 	int total = 0;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if ((stack == NULL || *stack == NULL) || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't mod, stack is too short\n", line_number);
 		free_lists(*stack);
