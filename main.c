@@ -1,6 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
-char *exec = NULL;
+char *argument = NULL;
 /**
  * main - Thi sis the main entry file
  * @argc: this is argument count
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 			/*free_prim(prim);*/
 			/*continue;*/
 		}
-		exec = prim[1];
+		argument = prim[1];
 		if (!(handle_functions(prim[0], iloc)))
 		{
 			printf("Unhandled opcode: %s\n", prim[0]);

@@ -40,11 +40,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *exec;
+extern char *argument;
 
 char **blow(char *holder);
 void (*handle_functions(char *state, unsigned int l))(stack_t **stack, unsigned int);
-char *compd(char *buf);
+char *_cpygg(char *buf);
 void open_fail(char *buf);
 unsigned int mode_chckr(char *s);
 void error(char *buf, char **turn, unsigned int l,  stack_t *head, FILE *fp);

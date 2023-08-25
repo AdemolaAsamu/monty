@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * compd - function that creates copy of a string
+ * _cpygg - function that creates copy of a string
  * @buf: This si the string to be cpoied
  * Return: The copy of the string
  */
-char *compd(char *buf)
+char *_cpygg(char *buf)
 {
 	char *cpy = NULL, *cpy_paste;
 	int k, w;

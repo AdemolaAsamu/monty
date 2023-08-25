@@ -14,17 +14,17 @@ void push(stack_t **stack, __attribute__((unused))unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (exec == NULL)
+	if (argument == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((check_int(exec) == 0))
+	if ((check_int(argument) == 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	count = atoi(exec);
+	count = atoi(argument);
 	if (!stack)
 		return;
 	to_add->n = count;
@@ -55,17 +55,17 @@ void push_que(stack_t **stack, __attribute((unused))unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (exec == NULL)
+	if (argument == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (check_int(exec) == 0)
+	if (check_int(argument) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	count = atoi(exec);
+	count = atoi(argument);
 	if (to_add == NULL)
 	{
 		fprintf(stderr, "Error:malloc failed\n");

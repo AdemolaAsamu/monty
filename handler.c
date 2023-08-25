@@ -15,7 +15,7 @@ char **blow(char *holder)
 
 	if (holder == NULL)
 		return (NULL);
-	cpy = compd(holder);
+	cpy = _cpygg(holder);
 	hold = strtok(cpy, end);
 	while (hold)
 	{
@@ -33,7 +33,7 @@ char **blow(char *holder)
 	hold = strtok(holder, end);
 	while (hold != NULL)
 	{
-		hldr[k] = compd(hold);
+		hldr[k] = _cpygg(hold);
 		k++;
 		hold = strtok(NULL, end);
 	}
