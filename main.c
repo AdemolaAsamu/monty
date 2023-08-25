@@ -33,17 +33,20 @@ int main(int argc, char **argv)
 		if (strcmp(prim[0], "queue") || !strcmp(prim[0], "stack"))
 		{
 			state = mode_chckr(prim[0]);
-			free_prim(prim);
-			continue;
+			/*free_prim(prim);*/
+			/*continue;*/
 		}
 		exec = prim[1];
 		if (!(handle_functions(prim[0], iloc)))
+		{
+			printf("Unhandled opcode: %s\n", prim[0]);
 			error(gap, prim, iloc, head, fd);
+		}
 		if (state && (!strcmp(prim[0], "push")))
 			handle_functions("queue", iloc)(&head, iloc);
 		else
 			handle_functions(prim[0], iloc)(&head, iloc);
-		free_prim(prim);
+		/*free_prim(prim);*/
 	}
 	fclose(fd);
 	free(gap);
